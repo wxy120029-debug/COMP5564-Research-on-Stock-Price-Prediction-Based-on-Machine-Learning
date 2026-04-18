@@ -1,94 +1,95 @@
-# COMP5564 - Research on Stock Price Prediction Based on Machine Learning
+# COMP5564 ML in Finance Data Project 
 
-## Project Overview
+## Research Report on Stock Price Prediction Based on Machine Learning
 
-This project focuses on predicting stock prices using various machine learning techniques. It analyzes historical stock data from multiple companies and implements both classification and regression models to forecast stock price movements and values.
+### Project Overview
 
-## Repository Structure
+This project conducts research on stock price prediction using machine learning techniques, employing various machine learning models (LSTM, Linear Regression, XGBoost) to perform classification and regression analysis on stock data across different time windows (t1 and t5).
+
+### Project Structure
 
 ```
-COMP5564-Research-on-Stock-Price-Prediction-Based-on-Machine-Learning/
-├── try003.py                          # Main Python script for stock price prediction
-├── feature_data.csv                   # Extracted features dataset
-├── all_stocks_results.csv             # Comprehensive results from all stocks analysis
-├── AAPL_data.csv                      # Apple Inc. stock data
-├── GOOGL_data.csv                     # Alphabet Inc. (Google) stock data
-├── MSFT_data.csv                      # Microsoft Corporation stock data
-├── NFLX_data.csv                      # Netflix Inc. stock data
-├── NVDA_data.csv                      # NVIDIA Corporation stock data
-├── archive/                           # Historical data archive
-│   ├── individual_stocks_5yr/         # 5-year individual stock data for S&P 500 companies
-│   │   └── individual_stocks_5yr/     # CSV files for each stock ticker
-│   ├── all_stocks_5yr.csv            # Combined 5-year data for all stocks
-│   ├── getSandP.py                    # Script to fetch S&P 500 data
-│   └── merge.sh                       # Shell script to merge stock data
-├── *.png                              # Visualization outputs
-│   ├── 1_all_stocks_confusion_matrices.png
-│   ├── 2_all_stocks_regression_predictions.png
-│   ├── 3_all_stocks_term_comparison.png
-│   ├── 4_all_stocks_classification_performance.png
-│   └── 5_all_stocks_regression_performance.png
-└── 6_result.txt                       # Text summary of results
+My5564/
+├── .idea/                    # IDE configuration files
+├── archive/                  # Historical data archive
+│   ├── individual_stocks_5yr/    # Individual stock 5-year data
+│   ├── all_stocks_5yr.csv        # All stocks 5-year summary data
+│   ├── getSandP.py              # Script to fetch S&P 500 data
+│   └── merge.sh                 # Data merging script
+├── models/                   # Directory for storing trained models
+├── result/                   # Experimental results and visualization charts
+│   ├── LSTM_t1_vs_t5.png         # LSTM model t1 vs t5 comparison chart
+│   ├── Linear_t1_vs_t5.png       # Linear Regression model t1 vs t5 comparison chart
+│   ├── XGBoost_t1_vs_t5.png      # XGBoost model t1 vs t5 comparison chart
+│   ├── accuracy_compare.png      # Accuracy comparison chart
+│   ├── auc_roc_compare.png       # AUC-ROC comparison chart
+│   ├── f1_compare.png            # F1 score comparison chart
+│   ├── mae_compare.png           # MAE comparison chart
+│   ├── model_performance.csv     # Model performance metrics summary
+│   ├── r2_compare.png            # R² comparison chart
+│   └── rmse_compare.png          # RMSE comparison chart
+├── split_data/               # Split training/testing data
+│   ├── AAPL_test.csv             # Apple test data
+│   ├── AAPL_train.csv            # Apple training data
+│   ├── GOOGL_test.csv            # Google test data
+│   ├── GOOGL_train.csv           # Google training data
+│   ├── MSFT_test.csv             # Microsoft test data
+│   ├── MSFT_train.csv            # Microsoft training data
+│   ├── NFLX_test.csv             # Netflix test data
+│   ├── NFLX_train.csv            # Netflix training data
+│   ├── NVDA_test.csv             # NVIDIA test data
+│   ├── NVDA_train.csv            # NVIDIA training data
+│   ├── test_featured.csv         # Test feature data
+│   ├── test_featured_reg.csv     # Test regression feature data
+│   ├── train_featured.csv        # Training feature data
+│   └── train_featured_reg.csv    # Training regression feature data
+├── .gitignore                # Git ignore file configuration
+├── 1.COMP5564_Classification_t1_t5.py  # Classification task main program (t1 vs t5)
+├── 2.COMP5564_Regression_t1_t5.py      # Regression task main program (t1 vs t5)
+├── AAPL_data.csv               # Apple raw data
+├── GOOGL_data.csv              # Google raw data
+├── MSFT_data.csv               # Microsoft raw data
+├── NFLX_data.csv               # Netflix raw data
+└── NVDA_data.csv               # NVIDIA raw data
 ```
 
-## Key Components
+### Main File Descriptions
 
-### Main Script
-- **try003.py**: The core Python script that implements machine learning models for stock price prediction, including data preprocessing, feature engineering, model training, and evaluation.
+#### Core Code Files
+- `1.COMP5564_Classification_t1_t5.py`: Implements classification prediction of stock price movements, comparing model performance across different time windows (t1, t5)
+- `2.COMP5564_Regression_t1_t5.py`: Implements regression prediction of stock prices, comparing model performance across different time windows (t1, t5)
 
-### Data Files
-- **Individual Stock Data**: CSV files containing historical price data for major tech stocks (AAPL, GOOGL, MSFT, NFLX, NVDA)
-- **Feature Dataset**: Preprocessed features extracted from raw stock data for model training
-- **Results**: Comprehensive analysis results stored in CSV format
+#### Data Files
+- `*_data.csv`: Raw historical data files for each stock
+- `split_data/`: Training/testing datasets after preprocessing and feature engineering
 
-### Archive
-- Contains 5-year historical data for S&P 500 companies
-- Includes scripts for data acquisition and preprocessing
-- Provides a comprehensive dataset for robust model training
+#### Result Files
+- `result/`: Contains visualization charts of various evaluation metrics and performance summary tables
+- `models/`: Stores trained machine learning models
 
-### Visualizations
-The project generates several visualization outputs:
-1. Confusion matrices for classification performance
-2. Regression prediction plots
-3. Term comparison charts
-4. Classification performance metrics
-5. Regression performance metrics
+### Technology Stack
 
-## Features
+- Python programming language
+- Machine Learning Libraries: scikit-learn, XGBoost, TensorFlow/Keras (LSTM)
+- Data Processing: pandas, numpy
+- Visualization: matplotlib, seaborn
 
-- Multi-stock analysis across S&P 500 companies
-- Both classification (direction prediction) and regression (price prediction) approaches
-- Comprehensive feature engineering from historical stock data
-- Performance evaluation with multiple metrics
-- Visual representation of model performance
+### Research Content
 
-## Requirements
+This project investigates the following aspects:
+1. Performance of different machine learning models in stock price prediction
+2. Comparison of short-term (t1) vs medium-term (t5) prediction windows
+3. Performance differences between classification tasks (price movement prediction) and regression tasks (price prediction)
+4. Prediction effectiveness analysis across multiple tech stocks (AAPL, GOOGL, MSFT, NFLX, NVDA)
 
-To run this project, you'll need:
-- Python 3.x
-- Common data science libraries (pandas, numpy, scikit-learn, matplotlib, etc.)
+### How to Run
 
-## Usage
+1. Ensure required dependencies are installed
+2. Run classification task: `python 1.COMP5564_Classification_t1_t5.py`
+3. Run regression task: `python 2.COMP5564_Regression_t1_t5.py`
 
-1. Ensure all required Python packages are installed
-2. Run the main script:
-   ```bash
-   python try003.py
-   ```
-3. Review the generated results and visualizations
+### Notes
 
-## Results
-
-The project produces:
-- Prediction accuracy metrics for classification tasks
-- Error metrics (MSE, RMSE, MAE) for regression tasks
-- Visual comparisons of predicted vs actual values
-- Performance analysis across different stocks and time periods
-
-## Author
-
-This project was developed as part of COMP5564 coursework focusing on machine learning applications in financial markets.
-
-## License
-
-This project is for educational and research purposes.
+- The project requires sufficient memory to process large-scale stock data
+- Deep learning models (LSTM) may require GPU acceleration for training
+- Results may vary slightly due to random seeds and data splits
