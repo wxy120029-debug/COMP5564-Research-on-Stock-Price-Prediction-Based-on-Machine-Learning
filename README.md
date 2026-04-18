@@ -39,9 +39,9 @@ My5564/
 │   ├── NFLX_train.csv            # Netflix training data
 │   ├── NVDA_test.csv             # NVIDIA test data
 │   ├── NVDA_train.csv            # NVIDIA training data
-│   ├── test_featured.csv         # Test feature data
+│   ├── test_featured.csv         # Test classification feature data
 │   ├── test_featured_reg.csv     # Test regression feature data
-│   ├── train_featured.csv        # Training feature data
+│   ├── train_featured.csv        # Training classification feature data
 │   └── train_featured_reg.csv    # Training regression feature data
 ├── .gitignore                # Git ignore file configuration
 ├── 1.COMP5564_Classification_t1_t5.py  # Classification task main program (t1 vs t5)
